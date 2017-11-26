@@ -1,0 +1,52 @@
+module.exports = function(grunt) {
+  /**
+   * Production taks.
+   *
+   * Triggers deploy task if --production flag is set
+   */
+  grunt.registerTask('production', 'Trigger deploy if production mode', function() {
+    if (!grunt.config.get('config.debug')) {
+      grunt.task.run('deploy');
+    }
+  });
+
+  /**
+   * Deploy task.
+   *
+   * Builds the project in temporary directory.
+   * It is splitted into two tasks to handle two configs.
+   */
+  // grunt.registerTask('deploy', 'Perform the test and build', function() {
+  //   // Override the path
+  //   grunt.config.set('config.paths._deploy_dist', config.paths.dist);
+  //   grunt.config.set('config.paths.dist', config.paths.tmp);
+
+  //   // Reload the config
+  //   this.loadGruntConfig();
+
+  //   // Override some configs
+  //   grunt.config('jshint.options.force', false);
+  //   grunt.config('coffeelint.options.force', false);
+  //   grunt.config('validation.options.failHard', true);
+
+  //   // Run the build and the second deploy
+  //   // we can't simply reset the config after build
+  //   // cause the resetted config would be used in
+  //   // the triggered previously build anyway
+  //   grunt.task.run(['install', 'compile', 'test', 'htmlbuild','deploy2']);
+  // });
+
+  /**
+   * Deploy (second) task.
+   *
+   * It is meant to reset the config,
+   * and compile the project again.
+   */
+  // grunt.registerTask('deploy2', 'Perform the test and build', function() {
+  //   // Reset the path
+  //   grunt.config.set('config.paths.dist', grunt.config('config.paths._deploy_dist'));
+
+  //   // Simply run the compile and compress
+  //   grunt.task.run(['reload_config', 'install', 'compile', 'htmlbuild', 'compress']);
+  // });
+}

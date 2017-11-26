@@ -1,0 +1,10 @@
+{
+  "id": "someId",
+  "paths": {
+    "app": "source",
+    "dev": "dev",
+    "dist": "public_html",
+    "debug": "debug",
+    "tmp": ".tmp"
+  }
+}

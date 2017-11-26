@@ -1,0 +1,64 @@
+/**
+ * @file Provides simple files filter usable in grunt task configuration
+ */
+var path = require('path');
+
+module.exports = function(grunt) {
+
+  var extensionRegExp = new RegExp('\\.([^.]+)$');
+
+  function arrayToPatternPart(elements) {
+    return Array.isArray(elements) ? (elements.length > 1 ? ('{' + elements.join(',') + '}') : elements[0]) : elements;
+  }
+
+  var extensionPatternStatic = {};
+  function createExtensionPattern(ext) {
+    if (!extensionPatternStatic[ext]) {
+      // Set default pattern suffix
+      var extensions = [ ext, ext + '.tpl' ];
+
+      switch (ext) {
+        case 'css':
+          extensions.push('scss');
+          extensions.push('sass');
+          break;
+        case 'js':
+          extensions.push('coffee');
+          break;
+      }
+
+      extensionPatternStatic[ext] = '.' + arrayToPatternPart(extensions);
+    }
+
+    return extensionPatternStatic[ext];
+  }
+
+  var filters = {
+    exists: function(dirs, absolute) {
+      var srcDirParts = grunt.config.get('config.paths.dist').split(path.sep).length,
+          patternPrefix = arrayToPatternPart(dirs || grunt.config.get('config.build'));
+
+      if (absolute) {
+        srcDirParts += path.resolve().split(path.sep).length;
+      }
+
+      return function(filepath) {
+        var base = filepath.split(path.sep).slice(srcDirParts).join('/').replace(extensionRegExp, ''),
+            ext = (filepath.match(extensionRegExp) || ['', ''])[1];
+
+        var extensionPattern = ext ? createExtensionPattern(ext) : '';
+
+        var patterns = [ patternPrefix + '/' + base + extensionPattern ];
+        return grunt.file.expand(patterns).length;
+      }
+    },
+    notExists: function(dirs, absolute) {
+      var exists = filters.exists(dirs, absolute);
+      return function(filepath) {
+        return !exists(filepath);
+      }
+    }
+  }
+
+  return filters;
+}

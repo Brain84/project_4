@@ -1,0 +1,28 @@
+var _ = require('underscore');
+
+module.exports = function(grunt) {
+  return function(base) {
+    var base = base || {};
+    var debugPath = grunt.config.get('config.paths.debug')
+    var buildPaths = grunt.config.get('config.build') || [ grunt.config.get('config.paths.app'), debugPath ];
+    if (!grunt.config.get('config.debug')) {
+      var i = buildPaths.indexOf(debugPath);
+      if (i !== -1) {
+        buildPaths.splice(i, 1);
+      }
+    }
+    var buildFiles = [];
+
+    for (var i = 0; i < buildPaths.length; i++) {
+      buildFiles.push(
+        _.extend({}, base, {
+          cwd: buildPaths[i] + '/',
+          dest: grunt.config.get('config.paths.dist') + '/',
+          dot: true
+        }
+      ));
+    }
+
+    return buildFiles;
+  }
+}

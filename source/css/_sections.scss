@@ -1,0 +1,97 @@
+.section--hero {
+	height: 70vh;
+	width: 100%;
+	background-image: url("../images/bg-hero.png");
+	background-repeat: no-repeat;
+	@include background-size(cover);
+	position: relative;
+	h1 {
+		margin: 0;
+		width: 35%;
+		font-family: 'Roboto', sans-serif;
+		color: $color-white;
+		font-weight: 100;
+		font-size: $font-title-hero;
+		position: absolute;
+		top: 20%;
+		left: calc(50% - 450px);
+	}
+	span {
+		font-family: 'Roboto', sans-serif;
+		color: $color-white;
+		font-weight: 100;
+		font-size: $font-medium;
+		width: 11rem;
+		text-align: center;
+		position: absolute;
+		right: calc(50% - 475px);
+		bottom: 10%;
+	}
+}
+.section--hero_img {
+	img {
+		width: 47rem;
+		height: 47rem;
+		@include border-radius(50%);
+		position: absolute;
+		top: 0;
+		right: calc(50% - 530px);
+	}
+}
+.section--hero_img2 {
+	img {
+		position: absolute;
+		bottom: 0;
+		right: calc(50% - 514px);
+	}
+}
+.section--search {
+	background-color: $color-bgc-section-search;
+	height: 5rem;
+}
+.section--delivery {
+	margin: 30px 15px;
+	display: block;
+	width: calc(100% - 30px);
+	height: 25rem;
+	background-image: linear-gradient(to top, $color-5 0%, #fff 100%);
+	a {
+		text-decoration: none;
+	}
+	i {
+		font-size: $font-icon-delivery;
+		color: $color-icon-delivery;
+		padding: 40px 0;
+	}
+	p {
+		margin: 0;
+		font-size: $font-section-delivery;
+		font-family: 'Roboto', sans-serif;
+		text-transform: uppercase;
+		color: $color-7;
+		font-weight: 700;
+	}
+}
+.container-delivery {
+	text-align: center;
+	span {
+		font-weight: 400;
+		&:after {
+			content: '\A';
+			white-space: pre;
+		}
+	}
+}
+.section--mainside {
+	overflow: hidden;
+	div.container {
+		display: flex;
+		justify-content: center;
+	}
+}
+.row_img {
+	height: 5rem;
+	img {
+		height: 5rem;
+	}
+}

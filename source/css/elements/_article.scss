@@ -1,0 +1,66 @@
+.articles {
+	padding-left: 5px;
+}
+.article-twitte {
+	h5 {
+		margin: 5px 0 20px 0;
+		font-family: 'Roboto', sans-serif;
+		font-size: $font-title-article;
+		color: $color-title-article;
+	}
+	i {
+		font-size: $font-icon-article;
+		padding-right: 5px;
+		vertical-align: top;
+		color: $color-7;
+	}
+	p {
+		margin: 0;
+		font-family: 'Roboto', sans-serif;
+		width: 75%;
+		font-size: $font-article;
+		font-style: italic;
+		text-align: justify;
+		display: inline-block;
+		color: $color-7;
+		span {
+			color: $color-2;
+			font-weight: 700;
+		}
+	}
+}
+.article-client {
+	h5 {
+		margin: 25px 0 20px 0;
+		font-family: 'Roboto', sans-serif;
+		font-size: $font-title-article;
+		color: $color-title-article;
+		text-transform: uppercase;
+	}
+	a {
+		text-decoration: none;
+	}
+	p {
+		width: 90%;
+		min-height: 5rem;
+		font-family: 'Roboto', sans-serif;
+		font-size: $font-article;
+		color: $color-7;
+		font-style: italic;
+		padding: 20px 20px;
+		line-height: 1.5;
+		background-color: $color-white;
+	}
+	i {
+		font-size: $font-icon-article;
+		color: $color-7;
+		span {
+			font-size: $font-article;
+			padding-left: 15px;
+			color: $color-black;
+			font-family: 'Roboto', sans-serif;
+			font-weight: 700;
+
+		}
+	}
+}

@@ -1,0 +1,35 @@
+.form-search {
+	height: 5rem;
+	display: flex;
+	align-items: center;
+	label {
+		font-family: 'Roboto', sans-serif;
+		text-transform: uppercase;
+		font-size: $font-label-search;
+		color: $color-label-search;
+		font-weight: 700;
+		line-height: 5rem;
+		padding-left: 10px;
+	}
+}
+.form-input {
+	height: 3.6rem;
+	width: 30rem;
+	margin-left: 20px;
+	background-color: $color-input;
+	font-size: $font-regular;
+}
+.form-button {
+	width: 3.4rem;
+	height: 3.4rem;
+	background-color: $color-search-button;
+	border: 1px solid $color-search-button;
+	outline: none;
+	i {
+		font-size: 2rem;
+		color: $color-white;
+	}
+	&:hover {
+		background-color: $color-search-button-hover;
+	}
+}

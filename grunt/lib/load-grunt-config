@@ -1,0 +1,29 @@
+var path = require('path');
+
+module.exports = function(grunt) {
+  return function() {
+    var config = grunt.config('config');
+
+    
+
+    require('load-grunt-config')(grunt, {
+      configPath: path.join(process.cwd(), 'grunt/tasks'),
+      init: true,
+      data: grunt.config('config'),
+      jitGrunt: {
+        staticMappings: {
+          copyto: 'grunt-copy-to',
+          htmlbuild: 'grunt-html-build',
+          htmllint: 'grunt-html'
+        }
+      }
+    });
+
+    grunt.config.set('config', config);
+
+    if (grunt.file.exists('grunt/config/local.json')) {
+      // Make sure the local.json will not be cleared
+      grunt.config.set('modify_json.local.options.fields', grunt.file.readJSON('grunt/config/local.json'));
+    }
+  }
+}
