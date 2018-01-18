@@ -25,7 +25,7 @@
 			border-right: 7px solid transparent;
 			border-bottom: 7px solid $color-arrow-nav-sidebar;
 			display: block;
-			@include transform (rotate(90deg));
+			transform: rotate(90deg);
 			margin: 0 10px;
 		}
 		&:hover {

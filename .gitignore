@@ -1,14 +1,11 @@
 .sass-cache
-bower_components
 node_modules
-/public_html
+dist
 /validation-report.json
 /validation-status.json
-/vendor
 /.tmp
-/grunt/config/local.json
 *~
 /composer.phar
-/source/vendor
+
 
 

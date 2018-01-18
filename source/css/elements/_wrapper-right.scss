@@ -60,7 +60,7 @@
 	grid-column: 2 / 4;
 	background-image: url("../images/photo13.png");
 	background-repeat: no-repeat;
-	@include background-size(cover);
+	background-size: cover;
 	height: 38.5rem;
 	background-color: $color-white;
 	padding-top: 100px;

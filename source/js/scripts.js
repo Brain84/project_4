@@ -1,10 +1,7 @@
-//open nav list
-(function(){
-	'use strict';
-	$(function(){
-		$('.js-hamburger').on('click', function() {
-			$('.header-nav-list').toggleClass('is-open-menu');
-		});
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 
-	});
-})();
+//open nav list
+$('.js-hamburger').on('click', function() {
+	$('.header-nav-list').toggleClass('is-open-menu');
+});
